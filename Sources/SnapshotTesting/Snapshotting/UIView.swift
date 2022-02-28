@@ -18,7 +18,7 @@ extension Snapshotting where Value == UIView, Format == UIImage {
   public static func image(
     drawHierarchyInKeyWindow: Bool = false,
     precision: Float = 1,
-    subpixelThreshold: UInt8 = 0,
+    subpixelThreshold: UInt8 = 1,
     size: CGSize? = nil,
     traits: UITraitCollection = .init()
     )

@@ -11,7 +11,7 @@ extension Snapshotting where Value == CGPath, Format == NSImage {
   ///
   /// - Parameter precision: The percentage of pixels that must match.
   /// - Parameter subpixelThreshold: The byte-value threshold at which two subpixels are considered different.
-  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 0, drawingMode: CGPathDrawingMode = .eoFill) -> Snapshotting {
+  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 1, drawingMode: CGPathDrawingMode = .eoFill) -> Snapshotting {
     return SimplySnapshotting.image(precision: precision, subpixelThreshold: subpixelThreshold).pullback { path in
       let bounds = path.boundingBoxOfPath
       var transform = CGAffineTransform(translationX: -bounds.origin.x, y: -bounds.origin.y)
@@ -42,7 +42,7 @@ extension Snapshotting where Value == CGPath, Format == UIImage {
   /// - Parameter precision: The percentage of pixels that must match.
   /// - Parameter subpixelThreshold: The byte-value threshold at which two subpixels are considered different.
 
-  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 0, scale: CGFloat = 1, drawingMode: CGPathDrawingMode = .eoFill) -> Snapshotting {
+  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 1, scale: CGFloat = 1, drawingMode: CGPathDrawingMode = .eoFill) -> Snapshotting {
     return SimplySnapshotting.image(precision: precision, subpixelThreshold: subpixelThreshold, scale: scale).pullback { path in
       let bounds = path.boundingBoxOfPath
       let format: UIGraphicsImageRendererFormat

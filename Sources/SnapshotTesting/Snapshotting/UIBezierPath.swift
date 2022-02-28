@@ -11,7 +11,7 @@ extension Snapshotting where Value == UIBezierPath, Format == UIImage {
   ///
   /// - Parameter precision: The percentage of pixels that must match.
   /// - Parameter subpixelThreshold: The byte-value threshold at which two subpixels are considered different.
-  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 0, scale: CGFloat = 1) -> Snapshotting {
+  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 1, scale: CGFloat = 1) -> Snapshotting {
     return SimplySnapshotting.image(precision: precision, subpixelThreshold: subpixelThreshold, scale: scale).pullback { path in
       let bounds = path.bounds
       let format: UIGraphicsImageRendererFormat

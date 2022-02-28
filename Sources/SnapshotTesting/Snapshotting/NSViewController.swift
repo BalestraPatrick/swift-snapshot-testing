@@ -13,7 +13,7 @@ extension Snapshotting where Value == NSViewController, Format == NSImage {
   ///   - precision: The percentage of pixels that must match.
   ///   - subpixelThreshold: The byte-value threshold at which two subpixels are considered different.
   ///   - size: A view size override.
-  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 0, size: CGSize? = nil) -> Snapshotting {
+  public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 1, size: CGSize? = nil) -> Snapshotting {
     return Snapshotting<NSView, NSImage>.image(precision: precision, subpixelThreshold: subpixelThreshold, size: size).pullback { $0.view }
   }
 }

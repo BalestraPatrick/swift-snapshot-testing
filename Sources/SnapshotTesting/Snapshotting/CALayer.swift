@@ -37,7 +37,7 @@ extension Snapshotting where Value == CALayer, Format == UIImage {
   ///
   /// - Parameter precision: The percentage of pixels that must match.
   /// - Parameter subpixelThreshold: The byte-value threshold at which two subpixels are considered different.
-    public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 0, traits: UITraitCollection = .init())
+    public static func image(precision: Float = 1, subpixelThreshold: UInt8 = 1, traits: UITraitCollection = .init())
     -> Snapshotting {
       return SimplySnapshotting.image(precision: precision, subpixelThreshold: subpixelThreshold, scale: traits.displayScale).pullback { layer in
         renderer(bounds: layer.bounds, for: traits).image { ctx in
